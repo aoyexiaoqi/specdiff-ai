@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "specdiff-ai"
+version = "0.1.0"
+description = "AI-assisted technical agreement diff analysis for manufacturing process engineering / 工艺技术协议差异分析"
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+authors = [{ name = "aoyexiaoqi" }]
+keywords = ["pfmea", "technical-agreement", "diff", "manufacturing", "process-engineering"]
+dependencies = [
+    "python-docx>=0.8.11",
+    "pypdf>=3.0",
+    "openpyxl>=3.1",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7",
+    "pytest-cov>=4",
+]
+
+[project.scripts]
+specdiff = "specdiff_ai.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
